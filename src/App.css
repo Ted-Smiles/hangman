@@ -33,6 +33,38 @@
   margin: 12px;
 }
 
+.hangman-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-box {
+  position: absolute; 
+  top: 14%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  width: auto;
+  height: fit-content;
+  margin-top: 0;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  z-index: 100; 
+  background-color: lightgray;
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+  font-size: 40px;
+  font-weight: 500;
+}
+.overlay-box p {
+  margin: 0;
+}
+
+
 @media only screen and (max-width: 768px) {
   .word {
     width: 50vw;

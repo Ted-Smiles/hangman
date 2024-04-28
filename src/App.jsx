@@ -44,6 +44,7 @@ function App() {
 
   const gameFinished = () => {
     setGameOver(true)
+
   }
 
   const gameStart = (difficulty) => {
@@ -82,7 +83,7 @@ function App() {
   return (
     <>
       <Title />
-      <Hangman guesses={guesses}/>
+      <Hangman word={word} guesses={guesses} gameOver={gameOver}/>
       <WordDisplay word={word} letters={letters} gameOver={gameOver}/>
       <AlphabetButtons word={word} disabledKeys={disabledKeys} correct={correct} incorrect={incorrect} gameOver={gameOver} addKeys={addKeys}/>
       <Result word={word} guesses={guesses} gameFinished={gameFinished} gameStart={gameStart}/>

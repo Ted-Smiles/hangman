@@ -5,7 +5,8 @@ function Result({ word, guesses, gameFinished, gameStart }) {
     gameStart(difficulty);
   }
 
-  if (word.length === 0) {
+  if (word.length === 0 || guesses.correct === word.length || guesses.incorrect >= 7) {
+    word.length === 0 ? null: gameFinished()
     return (
       <div className="result">
         <h4>Choose a difficulty to play</h4>
@@ -14,28 +15,26 @@ function Result({ word, guesses, gameFinished, gameStart }) {
         <button onClick={handleClick}>Hard</button>
       </div>
     );
-  } else if (guesses.correct === word.length) {
-    gameFinished();
-    return (
-      <div className="result">
-        <h3>Winner 🫡</h3>
-        <h4>Choose a difficulty to play</h4>
-        <button onClick={handleClick}>Easy</button>
-        <button onClick={handleClick}>Medium</button>
-        <button onClick={handleClick}>Hard</button>
-      </div>
-    );
-  } else if (guesses.incorrect >= 7) {
-    gameFinished();
-    return (
-      <div className="result">
-        <h3>Loser 🤪</h3>
-        <h4>Choose a difficulty to play</h4>
-        <button onClick={handleClick}>Easy</button>
-        <button onClick={handleClick}>Medium</button>
-        <button onClick={handleClick}>Hard</button>
-      </div>
-    );
+  // } else if (guesses.correct === word.length) {
+  //   gameFinished();
+  //   return (
+  //     <div className="result">
+  //       <h4>Choose a difficulty to play</h4>
+  //       <button onClick={handleClick}>Easy</button>
+  //       <button onClick={handleClick}>Medium</button>
+  //       <button onClick={handleClick}>Hard</button>
+  //     </div>
+  //   );
+  // } else if (guesses.incorrect >= 7) {
+  //   gameFinished();
+  //   return (
+  //     <div className="result">
+  //       <h4>Choose a difficulty to play</h4>
+  //       <button onClick={handleClick}>Easy</button>
+  //       <button onClick={handleClick}>Medium</button>
+  //       <button onClick={handleClick}>Hard</button>
+  //     </div>
+  //   );
   }
 }
 
