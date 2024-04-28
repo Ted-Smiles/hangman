@@ -25,7 +25,7 @@ function Result({ word, guesses, gameFinished, gameStart }) {
         <button onClick={handleClick}>Hard</button>
       </div>
     );
-  } else if (guesses.incorrect >= 6) {
+  } else if (guesses.incorrect >= 7) {
     gameFinished();
     return (
       <div className="result">

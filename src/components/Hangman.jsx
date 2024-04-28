@@ -1,5 +1,14 @@
 function Hangman ({guesses}) {
     const hangmanParts = [
+      `
+      +---+
+          |
+          |
+          |
+          |
+          |
+    =========
+        `,
         `
       +---+
       |   |
