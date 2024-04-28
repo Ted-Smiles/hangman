@@ -2,7 +2,7 @@ function Title () {
     return (
         <>
             <h1>Hangman</h1>
-            <h3>By Ted Smiles</h3>
+            <h2>By Ted Smiles</h2>
         </>
     )
 }

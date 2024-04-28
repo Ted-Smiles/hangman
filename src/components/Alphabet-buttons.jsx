@@ -46,7 +46,7 @@ function AlphabetButtons ({ word, disabledKeys, correct, incorrect, gameOver, ad
 
     return (
         <>
-            <h4>Use the buttons or your keyboard to try to guess the mystery word</h4>
+            <h3>Use the buttons or your keyboard to try to guess the mystery word</h3>
             {alphabet.map((letter, index) => {
                 return (
                     <button 
