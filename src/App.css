@@ -11,7 +11,7 @@
 .word {
   display: flex;
   justify-content: space-around;
-  width: 40vw;
+  width: 20vw;
   height: 10vh;
   align-items: center;
 }
