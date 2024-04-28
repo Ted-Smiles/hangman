@@ -32,3 +32,8 @@
 .result button {
   margin: 12px;
 }
+
+pre {
+  font-size: 30px;
+  padding-right: 150px;
+}

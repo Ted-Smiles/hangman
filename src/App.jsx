@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { generate } from "random-words";
 import './App.css'
 
 import AlphabetButtons from './components/Alphabet-buttons'
@@ -18,10 +19,11 @@ function App() {
   const [letters, setLetters] = useState([])
   const [gameOver, setGameOver] = useState(true)
   const [word, setWord] = useState("")
+  const [disabledKeys, setDisabledKeys] = useState([]);
 
-  const correct = (letter) => {
+  const correct = (letter, numOfTimes) => {
     setGuesses((currGuesses) => {
-      currGuesses.correct++
+      currGuesses.correct += numOfTimes
       return {...currGuesses}
     })
     setLetters((currLetters) => {
@@ -36,6 +38,10 @@ function App() {
     })
   }
 
+  const addKeys = (key) => {
+    setDisabledKeys([...disabledKeys, key])
+  }
+
   const gameFinished = () => {
     setGameOver(true)
   }
@@ -44,16 +50,32 @@ function App() {
     setGameOver(false)
     setGuesses({correct: 0, incorrect: 0})
     setLetters([''])
+    setDisabledKeys([])
+
+    const pointSystem = { 1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'], 2: ['D', 'G'], 3: ['B', 'C', 'M', 'P'], 4: ['F', 'H', 'V', 'W', 'Y'], 5: ['K'], 8: ['J', 'X'], 10: ['Q', 'Z'] }
+    let range = getRandomInt(3)
+    let possibleWords = generate(30)
+
+    function calculateScore(word) {
+      let score = 0;
+      for (let letter of word.toUpperCase()) {
+        for (let [points, letters] of Object.entries(pointSystem)) {
+          if (letters.includes(letter)) {
+            score += Number(points);
+          }
+        }
+      }
+      return score;
+    }
+    possibleWords.sort((a, b) => calculateScore(a) - calculateScore(b));
 
     if (difficulty === 'Easy') {
-      const easyWords = ['dog', 'god', 'row', 'hear', 'pet']
-      setWord(easyWords[getRandomInt(easyWords.length)]);
+      console.log(possibleWords[range])
+      setWord(possibleWords[range]);
     } else if (difficulty === 'Medium') {
-      const mediumWords = ['hangman', 'addict', 'pesto', 'sushi']
-      setWord(mediumWords[getRandomInt(mediumWords.length)]);
+      setWord(possibleWords[range + 10]);
     } else if (difficulty === 'Hard') {
-      const hardWords = ['awkward', 'blizzard', 'bookworm', 'witchcraft', 'wristwatch', 'jawbreaker']
-      setWord(hardWords[getRandomInt(hardWords.length)]);
+      setWord(possibleWords[range + 20]);
     }
   }
 
@@ -62,7 +84,7 @@ function App() {
       <Title />
       <Hangman guesses={guesses}/>
       <WordDisplay word={word} letters={letters} gameOver={gameOver}/>
-      <AlphabetButtons word={word} correct={correct} incorrect={incorrect} gameOver={gameOver}/>
+      <AlphabetButtons word={word} disabledKeys={disabledKeys} correct={correct} incorrect={incorrect} gameOver={gameOver} addKeys={addKeys}/>
       <Result word={word} guesses={guesses} gameFinished={gameFinished} gameStart={gameStart}/>
     </>
   )

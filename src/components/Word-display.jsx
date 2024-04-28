@@ -3,11 +3,11 @@ function WordDisplay ({ word, letters, gameOver }) {
     return (
         <div className="container">
             <div className="word">
-                {sepWord.map((character) => {
+                {sepWord.map((character, index) => {
                     if (letters.includes(character) || gameOver === true) {
-                        return <p>{character}</p>
+                        return <p key={index}>{character}</p>
                     } else {
-                        return <p>_</p>
+                        return <p key={index}>_</p>
                     }
                 })}
             </div>
