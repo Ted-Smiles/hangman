@@ -76,10 +76,10 @@ function Hangman ({word, guesses, gameOver}) {
     ];
     return (
       <div class="hangman-container">
-        <pre>{hangmanParts[guesses.incorrect]}</pre>
+        <pre>{hangmanParts[guesses.incorrect]}</pre> 
         <div className="overlay-box" style={{
           transition: gameOver ? 'opacity 3s ease-in-out' : 'none',
-          opacity: gameOver ? 100 : 0,
+          opacity: gameOver && word.length > 0 ? 1 : 0,
         }}>
           { word.length === 0 ? ( 
             null
