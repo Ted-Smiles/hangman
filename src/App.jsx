@@ -54,7 +54,7 @@ function App() {
 
     const pointSystem = { 1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'], 2: ['D', 'G'], 3: ['B', 'C', 'M', 'P'], 4: ['F', 'H', 'V', 'W', 'Y'], 5: ['K'], 8: ['J', 'X'], 10: ['Q', 'Z'] }
     let range = getRandomInt(3)
-    let possibleWords = generate(30)
+    let possibleWords = generate(50)
 
     function calculateScore(word) {
       let score = 0;
@@ -73,9 +73,9 @@ function App() {
       console.log(possibleWords[range])
       setWord(possibleWords[range]);
     } else if (difficulty === 'Medium') {
-      setWord(possibleWords[range + 10]);
-    } else if (difficulty === 'Hard') {
       setWord(possibleWords[range + 20]);
+    } else if (difficulty === 'Hard') {
+      setWord(possibleWords[range + 40]);
     }
   }
 
