@@ -1,7 +1,5 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -12,12 +10,14 @@
 
 .word {
   display: flex;
-  justify-content: space-between;
-  width: 30vw;
+  justify-content: space-around;
+  width: 40vw;
+  height: 10vh;
+  align-items: center;
 }
 
 .word p {
-  font-size: 40px;
+  font-size: 32px;
   width: 40%;
   text-align: center;
 }
@@ -26,14 +26,9 @@
   margin-top: 30px;
 }
 .result h3{
-  font-size: 3em;
+  font-size: 2em;
 }
 
 .result button {
   margin: 12px;
-}
-
-pre {
-  font-size: 30px;
-  padding-right: 150px;
 }
