@@ -15,26 +15,6 @@ function Result({ word, guesses, gameFinished, gameStart }) {
         <button onClick={handleClick}>Hard</button>
       </div>
     );
-  // } else if (guesses.correct === word.length) {
-  //   gameFinished();
-  //   return (
-  //     <div className="result">
-  //       <h4>Choose a difficulty to play</h4>
-  //       <button onClick={handleClick}>Easy</button>
-  //       <button onClick={handleClick}>Medium</button>
-  //       <button onClick={handleClick}>Hard</button>
-  //     </div>
-  //   );
-  // } else if (guesses.incorrect >= 7) {
-  //   gameFinished();
-  //   return (
-  //     <div className="result">
-  //       <h4>Choose a difficulty to play</h4>
-  //       <button onClick={handleClick}>Easy</button>
-  //       <button onClick={handleClick}>Medium</button>
-  //       <button onClick={handleClick}>Hard</button>
-  //     </div>
-  //   );
   }
 }
 
